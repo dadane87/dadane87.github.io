@@ -1,28 +1,143 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
+
+    <head>
+        
+        <title>JQuery</title>
+        <script src="jquery-3.3.1.min.js"></script> 
+        <style type="text/css">
+            button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				float: bottom;
+			}
+			#circle {
+				background-color: green;
+				border-radius: 50%;
+				float:bottom;
+				width: 100px;
+				height: 100px;
+				margin: 10px;				
+			}
+			
+			#circle2 {
+				background-color: green;
+				border-radius: 50%;
+				float:bottom;
+				width: 100px;
+				height: 100px;
+				margin: 10px;				
+			}
+			
+			.squares {
+				background-color: red;
+				float:bottom;
+				width: 100px;
+				height: 100px;	
+				margin: 10px;
+			}
+			
+			#hiddenText {
+				display: none; 
+			}
+        </style>
+    
+    </head>
+
+    <body>
+        
+		<div id="circle"></div>
+		<div class="squares"></div>
+		<div class="squares"></div>
+		
+		<p id="wonder"></p>
+		
+		<p id="fadingP">Click button to remove text</p>
+		<button id="btnOne">Text 1</button>
+		<button id="btnTwo">Text 2</button>
+		
+		<p id="hiddenText">U r not gonna see this</p>
+		
+		
+		<div id="circle2"></div>
+		
+	<script type="text/javascript">
+		//jquery-3.3.1.min.js
+		
+		$("#circle").hover(function() {
+					
+			if ($("#circle").css("background-color") == "rgb(0, 128, 0)") {
+				$("#circle").css("background-color","orange");
+				console.log("color = green");
+			} else {
+				$("#circle").css("background-color","green");
+				console.log("color = orange");
+			}
+		});
+
+		/*$(".squares").hover(function() {
+			
+			$(this).css("display", "none");
+
+		});
+
+		
+		$("div").click(function() {
+		
+			$(this).fadeOut("slow", function() {
+				$("#wonder").html($("#wonder").html() + "<br>" + "FadeOut for " + $(this) + " finished");
+			});
+		});
+		
+		*/
+
+		$("#btnOne").click(function() {
+			if ($("#fadingP").css("display") == "none") {
+				$("#fadingP").fadeIn();
+				console.log("fading the shit in");				
+			} else {
+				$("#fadingP").fadeOut();
+				console.log("fading the shit out");
+			}
+		});
+		
+		$("#btnTwo").click(function() {
+			if ($("#hiddenText").css("display") == "none") {
+				$("#hiddenText").fadeIn();
+				console.log("fading the shit in");				
+			} else {
+				$("#hiddenText").fadeOut();
+				console.log("fading the shit out");
+			}
+		});
+		
+		$("#circle2").click(function() {
+
+			for (var i = 0; i < 5; i++) {
+				$(this).animate({
+					width:"0px", 
+					height:"400px",
+					marginLeft: "200px",
+					}, 500, function() {
+						$(this).css("background-color", "orange");
+				});
+				$(this).animate({
+					width:"100px", 
+					height:"100px",
+					marginLeft: "0px"
+					}, 500, function() {
+						$(this).css("background-color", "green");
+				});
+
+			}
+		});
+
+	</script>
+    </body>
+
 </html>
